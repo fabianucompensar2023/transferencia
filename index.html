@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño y Desarrollo Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+      <header>
+	<a href="#" class="logo">HOJAS DE VIDA GRUPO</a>
+	<div class="box">
+		<a href="#"><button>inicio sesión</button></a>
+             	<a href="BD/formulario.html" target="_blank"><input type="button" value="Registro" </a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home" class="active">Inicio</a></li>
+                <li><a href="#course" >Servicios</a></li>
+		<li><a href="#review" >Testimonios</a></li>
+                <li><a href="#contact" >Contacto</a></li>
+            </ul>
+         </nav>
+         <div class="fas fa-bars"></div>
+	</header>
+
+    <section class="home" id="home">
+        <div class="content">
+	<h1>Diseño y Desarrollo Web</h1>
+            <h2>Realizar un sitio web en el 
+que compilen todas las hojas de vida de los integrantes del 
+grupo, crear un sitio web que quiera mostrarle a sus futuros empleadores con sus datos 
+laborales, académicos y personales relevantes</h2>
+         </div>
+     </section>
+
+    <section class="product" id="product">
+        <div class="box-container">
+            <div class="box">
+                <h3>Angela Martinez</h3>
+                <p>Ingeniería de Sistemas</p>
+                <div class="image">
+                <img src="imagenes/logo dama.jpg" alt="" width ="200">
+            	</div>
+   		<a href="angela.html" target="_blank"><button>Ver mas</button></a>
+            </div>
+            <div class="box">
+         	<h3>Fabian Vela</h3>
+                <p>Ingeniería de Sistemas</p>
+                <div class="image">
+                <img src="imagenes/logo caballero.jpg" alt="" width ="180" height="165" >
+            	</div>
+   		<a href="fabian.html" target="_blank"><button>Ver mas</button></a>
+            </div>
+        </div>
+</section>
+
+<section class="course" id="course">
+
+        <h1 class="heading">Servicios</h1>
+        <h3 class="title">nuestros ingenieros</h3>
+
+        <div class="box-container">
+	 	<div class="box">
+		<h3>Ingeniero de sistemas</h3>
+		<img src="imagenes/ing sistemas.jpg" alt="" width ="180" height="165" >
+	 </div>
+	  <div class="box-container">
+	 	<div class="box">
+		<h3>Ingeniero de telecomunicaciones</h3>
+		<img src="imagenes/ing teleco.jpg" alt="" width ="180" height="165" >
+	 </div>
+	 <div class="box-container">
+	 	<div class="box">
+		<h3>Ingeniero de software</h3>
+		<img src="imagenes/ing software.jpg" alt="" width ="180" height="165" >
+	  </div>
+</section>
+
+
+<section class="review" id="review">
+           <h2 class="title">Testimonios</h2>
+	    <div class="box-container">
+            <div class="box">
+                <h3>Conocimiento</h3>
+                <p>Servicio exelente</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading">Contacto</h1>
+        <h2>Si requires asesoria o contratación por favor diligenica el siguiente formulario, nos comunicaremos en la brevedad.</h2>
+        <div class="row">
+            <div class="form-container">
+
+                <form action="">
+                    <input type="text" placeholder="Nombre">
+                    <input type="email" placeholder="Correo">
+                    <input type="number" placeholder="Telefono">
+                    <textarea cols="15" rows="5" placeholder="En que servicio estas interesado"></textarea >
+                    <input type="submit" value="Enviar">        
+                </form>
+
+            </div>
+        </div>
+
+    </section>
+
+ <section class="footer">
+
+        <div class="icons">
+            <a href="#home" class="fab fa-facebook-f"></a>
+            <a href="#home" class="fab fa-twitter"></a>
+            <a href="#home" class="fab fa-instagram"></a>
+        </div>
+
+    </section>
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+            $('.fa-bars').click(function() {
+
+                $(this).toggleClass('fa-times');
+                $('.navbar').toggleClass('nav-toggle');
+
+            });
+
+            $(window).on('scroll load', function() {
+
+                $('.fa-bars').removeClass('fa-times');
+                $('.navbar').removeClass('nav-toggle');
+
+                $('section').each(function() {
+
+                    var id = $(this).attr('id');
+                    var height = $(this).height();
+                    var offset = $(this).offset().top -200;
+                    var top = $(window).scrollTop();
+
+                    if(top >= offset && top < offset + height) {
+                        $('.navbar ul li a').removeClass('active');
+                        $('.navbar').find('[href="#'+id+'"]').addClass('active');
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+</html>
